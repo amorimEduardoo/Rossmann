@@ -33,7 +33,7 @@ The company's CFO requested a daily sales forecast for the next 6 weeks, in orde
 
 # Solution Strategy
 
-The management method used was CRISP-DM:
+## The management method used was CRISP-DM:
 
 **Step 01. Data Description:** The objective is to use statistical metrics to identify outliers, change data types and fillout NA's.
 
@@ -56,3 +56,49 @@ The management method used was CRISP-DM:
 **Step 10. Deploy Model to Production:** Publish the model to a cloud environment so that other people or services can use the results to improve the business decision. The cloud application platform choosed was Heroku.
 
 **Step 11. Telegram Bot:** Creation of a Telegram bot to facilitate forecast consultation and make decision-making faster.
+
+# Top Data Insights
+
+**H1**: Stores with greater assortment should sell more.
+
+**FALSE**: Stores with the BIGGEST ASSORTMENT sell LESS.
+
+![H1](https://user-images.githubusercontent.com/105643907/178976469-83e5ee3d-423a-467e-92a0-caa34acce65b.PNG)
+
+**H2**: Stores with closer competitors should sell less.
+
+**FALSE**: Stores with CLOSER competitors sell MORE.
+
+![H2](https://user-images.githubusercontent.com/105643907/178976915-abdefed4-e9cd-4c4d-b92a-d7135a0cfbfe.PNG)
+
+**H7**: Stores open during the Christmas holiday should sell more.
+
+**FALSE**: Stores sell LESS at CHRISTMAS.
+
+![H7](https://user-images.githubusercontent.com/105643907/178977867-1735f73a-3c88-4698-bde6-fcc9390bd9a5.PNG)
+
+# Used Machine Learning Models
+- Average Model
+- Linear Regression Model
+- Linear Regression Regularized Model (Lasso)
+- Random Forest Regressor
+- XGBoost Regressor
+
+# Machine Learning Model Performance
+
+## Real Performance - Cross Validation
+
+| Model Name | MAE CV | MAPE CV | RMSE CV |
+| ------ | ------ | ------ | ------ |
+| Random Forest Regressor | 836.61 +/- 217.1 | 0.12 +/- 0.02 | 1254.3 +/- 316.17 |
+| XGBoost Regressor | 1046.71 +/- 159.48 | 0.14 +/- 0.01 | 1510.2 +/- 215.5 |
+| Linear Regression | 2081.73 +/- 295.63 | 0.3 +/- 0.02 | 2952.52 +/- 468.37 |
+| Linear Regression - Lasso | 2116.38 +/- 341.5 | 0.29 +/- 0.01 | 3057.75 +/- 504.26 | 
+
+The sales forecasting phenomenon being modeled is complex, so linear models don't work as well. Although Random Forest presented a better result, the execution time is significantly longer, in addition to being heavy and demanding a lot of space on the server in the deployment stage, generating an increase in costs for the company. With that in mind, XGBoost was chosen for this model, as it is faster, lighter and has similar performance.
+
+## Final Performance - Hyperparameter Fine
+
+| Model Name | MAE | MAPE | RMSE |
+| ------ | ------ | ------ | ------ |
+| XGBoost Regressor | 764.975639 | 0.114861 | 1100.725149 |
