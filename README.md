@@ -102,3 +102,54 @@ The sales forecasting phenomenon being modeled is complex, so linear models don'
 | Model Name | MAE | MAPE | RMSE |
 | ------ | ------ | ------ | ------ |
 | XGBoost Regressor | 764.975639 | 0.114861 | 1100.725149 |
+
+# Model performance on business values
+
+Below is the sales forecast, as well as an estimate for the best and worst case scenarios of the model.
+
+| Scenario | Values |
+| ------ | ------ |
+| Prediction | R$286,435,616.00 | 
+| Worst Scenario | R$285,579,535.55 | 
+| Best Scenario | R$287,291,675.73 | 
+
+# How to access the prediction
+
+## Pre-requirement
+
+- Sign up telegram;
+- Create an account;
+- Download telegram on desktop, mobile or use telegram web.
+
+# Telegram
+
+- To acess the predictions on Telegram, click in the below:
+
+https://t.me/pred_ross_bot
+
+# Prediction
+
+- Send the store number (one each time) and get the sales prediction for the next six weeks.
+- If the Bot receives something other than a number as input, the following message will be returned: Please, enter a valid Store ID. 
+- If the store number does not exist, the message: Store Not Available.
+
+![bot](https://user-images.githubusercontent.com/105643907/178997690-129b368f-be96-4342-88d7-4dc0ca81c893.PNG)
+
+# Conclusion
+
+The model using XGBoost has an acceptable performance for the first cycle of CRISP-DM, considering the MAPE (Mean Absolute Percentage Error) of 0.11. However, some stores have greater difficulty in having their behavior predicted, presenting the MAPE (Mean Absolute Percentage Error) between 0.30 and 0.60. This result will be presented to the CFO and can later be improved in a next cycle.
+
+# Technologies
+
+- Jupyter Notebook
+- Python
+
+# Deploy into production
+
+- Back end: Heroku
+- Front end web: Telegram
+- Database: Kaggle
+
+# Author
+
+Eduardo Amorim
